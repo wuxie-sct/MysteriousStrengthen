@@ -10,13 +10,13 @@ public class ItemSet {
     @Getter
     private String name;
     @Getter
-    private QHMethood qhMethood;
+    private QHMethod qhMethod;
     private String[] nameSplit;
 
     ItemSet(String name, String programme){
         this.name = name;
         nameSplit = name.split("%p%");
-        qhMethood = QHMethoodManager.getQHMethood(programme);
+        qhMethod = QHMethodManager.getQHMethood(programme);
     }
     private boolean isContain(){
         return false;

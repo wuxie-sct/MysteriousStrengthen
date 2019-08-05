@@ -6,7 +6,7 @@ import me.wuxie.mysteriousstrengthen.gui.GuiManager;
 import me.wuxie.mysteriousstrengthen.jinjie.JinJieManager;
 import me.wuxie.mysteriousstrengthen.listener.InventoryListener;
 import me.wuxie.mysteriousstrengthen.strengthen.ItemSetManager;
-import me.wuxie.mysteriousstrengthen.strengthen.QHMethoodManager;
+import me.wuxie.mysteriousstrengthen.strengthen.QHMethodManager;
 import me.wuxie.mysteriousstrengthen.util.Command;
 import me.wuxie.mysteriousstrengthen.util.Message;
 import me.wuxie.mysteriousstrengthen.util.Metrics;
@@ -26,7 +26,7 @@ public final class MysteriousStrengthen extends JavaPlugin {
     @Getter
     private static ItemSetManager itemSetManager;
     @Getter
-    private static QHMethoodManager qhMethoodManager;
+    private static QHMethodManager qhMethodManager;
     @Getter
     private static GuiManager guiManager;
     @Getter
@@ -38,7 +38,7 @@ public final class MysteriousStrengthen extends JavaPlugin {
         new Metrics(this);
         guiManager = new GuiManager(this);
         itemSetManager = new ItemSetManager(this);
-        qhMethoodManager = new QHMethoodManager(this);
+        qhMethodManager = new QHMethodManager(this);
         itemSetManager.loadItemSet();
         jinJieManager = new JinJieManager(this);
         msg = new Message(this);

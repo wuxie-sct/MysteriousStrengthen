@@ -1,7 +1,7 @@
 package me.wuxie.mysteriousstrengthen.strengthen.qd;
 
 import org.bukkit.Bukkit;
-import me.wuxie.mysteriousstrengthen.strengthen.QHMethood;
+import me.wuxie.mysteriousstrengthen.strengthen.QHMethod;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class NUMQH extends QH {
         for (String l : lore) {
             if (l.contains(qdSign)) {
                 try {
-                    double d = Double.valueOf(QHMethood.getNumber(l));
+                    double d = Double.valueOf(QHMethod.getNumber(l));
                     num = (int) d;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -35,7 +35,7 @@ public class NUMQH extends QH {
 
     @Override
     public String getQHLevel(int qd, String lore) {
-        String qd1 = QHMethood.getNumber(lore) + "";
+        String qd1 = QHMethod.getNumber(lore) + "";
         lore = lore.replace(qd1, qd + "");
         return lore;
     }

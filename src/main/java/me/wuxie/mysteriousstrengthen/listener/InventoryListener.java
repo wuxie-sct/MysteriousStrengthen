@@ -31,7 +31,7 @@ import me.wuxie.mysteriousstrengthen.api.OpenGuiEvent;
 import me.wuxie.mysteriousstrengthen.gui.Holder;
 import me.wuxie.mysteriousstrengthen.strengthen.ItemSet;
 import me.wuxie.mysteriousstrengthen.strengthen.ItemSetManager;
-import me.wuxie.mysteriousstrengthen.strengthen.QHMethood;
+import me.wuxie.mysteriousstrengthen.strengthen.QHMethod;
 
 import java.util.*;
 
@@ -122,7 +122,7 @@ public class InventoryListener implements Listener {
                 }
                 int needl = jj.getNeed_level();
                 ItemMeta meta = item.getItemMeta();
-                int qhlevel = getQh(Objects.requireNonNull(ItemSetManager.getItemSet(item.getItemMeta().getDisplayName())).getQhMethood()).
+                int qhlevel = getQh(Objects.requireNonNull(ItemSetManager.getItemSet(item.getItemMeta().getDisplayName())).getQhMethod()).
                         getQHLevel(meta.getLore()==null?new ArrayList<>():meta.getLore());
                 if(qhlevel>=needl){
                     double lp = jj.getLevel_probability();
@@ -139,7 +139,7 @@ public class InventoryListener implements Listener {
                             for(ItemStack zfitem:zflist){
                                 if(zfitem.hasItemMeta()&&zfitem.getItemMeta().hasLore()&&zfitem.getItemMeta().hasDisplayName()){
                                     if(ItemSet.nameEquals(jj.getZfcl(),zfitem.getItemMeta().getDisplayName())) {
-                                        additon += QHMethood.getAddition(zfitem.getItemMeta().getLore(), sign);
+                                        additon += QHMethod.getAddition(zfitem.getItemMeta().getLore(), sign);
                                         removeItem(inv, zfitem);
                                         if (additon + rp+lp*(qhlevel-needl) >= 100D) {
                                             break;
@@ -208,7 +208,7 @@ public class InventoryListener implements Listener {
                                     for(ItemStack bhitem:bhblist){
                                         if(bhitem.hasItemMeta()&&bhitem.getItemMeta().hasLore()&&bhitem.getItemMeta().hasDisplayName()){
                                             if(ItemSet.nameEquals(jj.getBhcl(),bhitem.getItemMeta().getDisplayName())) {
-                                                prob += QHMethood.getAddition(bhitem.getItemMeta().getLore(), signd);
+                                                prob += QHMethod.getAddition(bhitem.getItemMeta().getLore(), signd);
                                                 removeItem(inv, bhitem);
                                                 if (prob >= 100D) {
                                                     break;
@@ -266,7 +266,7 @@ public class InventoryListener implements Listener {
             // 祝福材料名称
             String zfs = jj.getZfcl().replace("%p%","?");
             // 装备强度等级
-            int level = getQh(ItemSetManager.getItemSet(item.getItemMeta().getDisplayName()).getQhMethood()).
+            int level = getQh(ItemSetManager.getItemSet(item.getItemMeta().getDisplayName()).getQhMethod()).
                     getQHLevel(meta.getLore()==null?new ArrayList<>():meta.getLore());
             // 成功几率
             double probability = jj.getProbability();
@@ -289,7 +289,7 @@ public class InventoryListener implements Listener {
                 for(ItemStack bhitem:bhblist){
                     if(bhitem.hasItemMeta()&&bhitem.getItemMeta().hasLore()&&bhitem.getItemMeta().hasDisplayName()){
                         if(ItemSet.nameEquals(jj.getBhcl(),bhitem.getItemMeta().getDisplayName())) {
-                            breakp += QHMethood.getAddition(bhitem.getItemMeta().getLore(), signd);
+                            breakp += QHMethod.getAddition(bhitem.getItemMeta().getLore(), signd);
                             if (breakp >= 100D) {
                                 breakp = 100D;
                                 break;
@@ -306,7 +306,7 @@ public class InventoryListener implements Listener {
                 for(ItemStack zfitem:zflist){
                     if(zfitem.hasItemMeta()&&zfitem.getItemMeta().hasLore()&&zfitem.getItemMeta().hasDisplayName()){
                         if(ItemSet.nameEquals(jj.getZfcl(),zfitem.getItemMeta().getDisplayName())) {
-                            additon += QHMethood.getAddition(zfitem.getItemMeta().getLore(), sign);
+                            additon += QHMethod.getAddition(zfitem.getItemMeta().getLore(), sign);
                         }
                     }
                 }
@@ -363,7 +363,7 @@ public class InventoryListener implements Listener {
             double bbbhf_jl=0D;
             double zfcl_jl=0D;
             ItemSet is;
-            QHMethood qhm;
+            QHMethod qhm;
             QH qh;
             List<String> lore;
             if(item.hasItemMeta()&&item.getItemMeta().hasDisplayName()){
@@ -372,7 +372,7 @@ public class InventoryListener implements Listener {
                 lore = meta.hasLore()?meta.getLore():new ArrayList<>();
                 is = ItemSetManager.getItemSet(zbname);
                 if(is!=null){
-                    qhm = is.getQhMethood();
+                    qhm = is.getQhMethod();
                     qh = getQh(qhm);
                     zblevel = qh.getQHLevel(lore);
                     if(zblevel+1>qhm.getMaxLevel()){
@@ -436,7 +436,7 @@ public class InventoryListener implements Listener {
             for(ItemStack i:items){
                 if(i.hasItemMeta()&&i.getItemMeta().hasLore()&&i.getItemMeta().hasDisplayName()){
                     if(ItemSet.nameEquals(cl,i.getItemMeta().getDisplayName())) {
-                        jl += QHMethood.getAddition(i.getItemMeta().getLore(), sign);
+                        jl += QHMethod.getAddition(i.getItemMeta().getLore(), sign);
                     }
                 }
             }
@@ -459,7 +459,7 @@ public class InventoryListener implements Listener {
         if(is==null){
             return;
         }
-        QHMethood qhm = is.getQhMethood();
+        QHMethod qhm = is.getQhMethod();
         QH qh = getQh(qhm);
         int level = qh.getQHLevel(meta.getLore()==null?new ArrayList<>():meta.getLore());
         if(level+1>qhm.getMaxLevel()){
@@ -491,7 +491,7 @@ public class InventoryListener implements Listener {
                     for(ItemStack zfitem:zflist){
                         if(zfitem.hasItemMeta()&&zfitem.getItemMeta().hasLore()&&zfitem.getItemMeta().hasDisplayName()){
                             if(ItemSet.nameEquals(qhm.getZfcl_name(),zfitem.getItemMeta().getDisplayName())) {
-                                additon += QHMethood.getAddition(zfitem.getItemMeta().getLore(), sign);
+                                additon += QHMethod.getAddition(zfitem.getItemMeta().getLore(), sign);
                                 removeItem(inv, zfitem);
                                 if (additon + probability >= 100D) {
                                     break;
@@ -533,7 +533,7 @@ public class InventoryListener implements Listener {
                             for(ItemStack bhitem:bhblist){
                                 if(bhitem.hasItemMeta()&&bhitem.getItemMeta().hasLore()&&bhitem.getItemMeta().hasDisplayName()){
                                     if(ItemSet.nameEquals(qhm.getQhbhf_break_name(),bhitem.getItemMeta().getDisplayName())) {
-                                        randd += QHMethood.getAddition(bhitem.getItemMeta().getLore(), signd);
+                                        randd += QHMethod.getAddition(bhitem.getItemMeta().getLore(), signd);
                                         removeItem(inv, bhitem);
                                         if (randd >= 100D) {
                                             break;
@@ -593,13 +593,13 @@ public class InventoryListener implements Listener {
             Message.send(p,Message.path1);
         }
     }
-    private double getRandl(Inventory inv, QHMethood qhm, List<ItemStack> bhllist, double randl) {
+    private double getRandl(Inventory inv, QHMethod qhm, List<ItemStack> bhllist, double randl) {
         if(contain(qhm.getQhbhf_level_name(),bhllist)){
             String signl = qhm.getQhbhf_level_sign();
             for(ItemStack bhitem:bhllist){
                 if(bhitem.hasItemMeta()&&bhitem.getItemMeta().hasLore()&&bhitem.getItemMeta().hasDisplayName()){
                     if(ItemSet.nameEquals(qhm.getQhbhf_level_name(),bhitem.getItemMeta().getDisplayName())){
-                        randl += QHMethood.getAddition(bhitem.getItemMeta().getLore(),signl);
+                        randl += QHMethod.getAddition(bhitem.getItemMeta().getLore(),signl);
                         removeItem(inv,bhitem);
                         if(randl>=100D){
                             break;
@@ -610,7 +610,7 @@ public class InventoryListener implements Listener {
         }
         return randl;
     }
-    private void qhsb(Player p,int qk,int level,int downLevel,String addlore,String levellore,QH qh,QHMethood qhm,Inventory inv,ItemStack item){
+    private void qhsb(Player p, int qk, int level, int downLevel, String addlore, String levellore, QH qh, QHMethod qhm, Inventory inv, ItemStack item){
         String name = item.getItemMeta().getDisplayName();
         switch (qk){
             case 1://损坏
@@ -639,7 +639,7 @@ public class InventoryListener implements Listener {
                 break;
         }
     }
-    private void jj(QHMethood qhm,int level,int downLevel,ItemStack item,String addlore,String levellore,QH qh,Inventory inv){
+    private void jj(QHMethod qhm, int level, int downLevel, ItemStack item, String addlore, String levellore, QH qh, Inventory inv){
         List<String> thisAttribute;
         if(level<=0){
             thisAttribute = new ArrayList<>();
@@ -665,7 +665,7 @@ public class InventoryListener implements Listener {
             }
         }
     }
-    private QH getQh(QHMethood qhm){
+    private QH getQh(QHMethod qhm){
         QH qh;
         if(qhm.isQDT()){
             qh = qhm.getQdtqh();

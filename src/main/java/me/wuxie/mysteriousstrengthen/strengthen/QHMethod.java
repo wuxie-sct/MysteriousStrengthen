@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class QHMethood {
+public class QHMethod {
     @Getter
     private Gui gui;
     @Getter
@@ -52,7 +52,7 @@ public class QHMethood {
     private File file;
     @Getter
     private Map<Integer, Level> levels;
-    public QHMethood(File file){
+    public QHMethod(File file){
         this.file = file;
         Bukkit.getConsoleSender().sendMessage("§aload Method §c"+file.getName());
         loadMethood();

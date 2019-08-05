@@ -13,7 +13,7 @@ import me.wuxie.mysteriousstrengthen.jinjie.JinJieManager;
 import me.wuxie.mysteriousstrengthen.listener.InventoryListener;
 import me.wuxie.mysteriousstrengthen.strengthen.ItemSet;
 import me.wuxie.mysteriousstrengthen.strengthen.ItemSetManager;
-import me.wuxie.mysteriousstrengthen.strengthen.QHMethood;
+import me.wuxie.mysteriousstrengthen.strengthen.QHMethod;
 
 public class Command implements CommandExecutor {
     @Override
@@ -32,14 +32,14 @@ public class Command implements CommandExecutor {
                 }
                 Gui gui;
                 ItemSet is;
-                QHMethood qhm;
+                QHMethod qhm;
                 if(itemStack.hasItemMeta()&&itemStack.getItemMeta().hasDisplayName()){
                     is = ItemSetManager.getItemSet(itemStack.getItemMeta().getDisplayName());
                     if(is==null){
                         Message.send(p,Message.path26);
                         return true;
                     }
-                    qhm = is.getQhMethood();
+                    qhm = is.getQhMethod();
                     gui = qhm.getGui();
                 }else{
                     Message.send(p,Message.path26);
@@ -121,7 +121,7 @@ public class Command implements CommandExecutor {
             else if(args[0].equalsIgnoreCase("reload")&&sender.hasPermission("strengthen.admin")){
                 MysteriousStrengthen.getGuiManager().loadGuis();
                 MysteriousStrengthen.getItemSetManager().loadItemName();
-                MysteriousStrengthen.getQhMethoodManager().loadQHMethood();
+                MysteriousStrengthen.getQhMethodManager().loadQHMethood();
                 MysteriousStrengthen.getItemSetManager().loadItemSet();
                 MysteriousStrengthen.getMsg().loadMessage();
                 MysteriousStrengthen.getJinJieManager().loadJJ();
