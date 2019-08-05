@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MysteriousStrengthen:jar">
+    <output-path>E:/customitems/plugins</output-path>
+    <root id="archive" name="[强化]MysteriousStrengthen-1.5-SNAPSHOT.jar">
+      <element id="module-output" name="MysteriousStrengthen" />
+    </root>
+  </artifact>
+</component>

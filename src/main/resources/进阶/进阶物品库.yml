@@ -1,0 +1,97 @@
+'1':
+  ==: org.bukkit.inventory.ItemStack
+  type: WOOD_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §a青铜匕首
+    lore:
+    - '§9类型§f: §6武器'
+    - '§b限制职业: §a侠盗'
+    - '§9限制等级: §a0'
+    - §b锤炼级别§e[§8◆◆◆◆◆◆◆◆◆◆§e]
+    - §e------[§c强化属性§e]-------
+    - §7------基础属性--------
+    - §5§a攻击力 §c+10
+    - §7-----------------------
+    - §9精心制做的匕首！
+    - §7-----------------------
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    - HIDE_POTION_EFFECTS
+    Unbreakable: true
+'2':
+  ==: org.bukkit.inventory.ItemStack
+  type: WOOD_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §a青铜大刀
+    lore:
+    - '§9类型§f: §6武器'
+    - '§b限制职业: §a刀客'
+    - '§9限制等级: §a0'
+    - §b锤炼级别§e[§8◆◆◆◆◆◆◆◆◆◆§e]
+    - §e------[§c强化属性§e]-------
+    - §7------基础属性--------
+    - §5§a攻击力 §c+10
+    - §7-----------------------
+    - §9精心制做的大刀！
+    - §7-----------------------
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    - HIDE_POTION_EFFECTS
+    Unbreakable: true
+'3':
+  ==: org.bukkit.inventory.ItemStack
+  type: WOOD_SWORD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §a青铜短剑
+    lore:
+    - '§9类型§f: §6武器'
+    - '§b限制职业: §a游侠'
+    - '§9限制等级: §a0'
+    - §b锤炼级别§e[§8◆◆◆◆◆◆◆◆◆◆§e]
+    - §e------[§c强化属性§e]-------
+    - §7------基础属性--------
+    - §5§a攻击力 §c+10
+    - §7-----------------------
+    - §9精心制做的剑！
+    - §7-----------------------
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    - HIDE_POTION_EFFECTS
+    Unbreakable: true
+'4':
+  ==: org.bukkit.inventory.ItemStack
+  type: BOW
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: §a硬木长弓
+    lore:
+    - '§9类型§f: §6武器'
+    - '§b限制职业: §a射手'
+    - '§9限制等级: §a0'
+    - §b锤炼级别§e[§8◆◆◆◆◆◆◆◆◆◆§e]
+    - §e------[§c强化属性§e]-------
+    - §7------基础属性--------
+    - §5§a攻击力 §c+10
+    - §5§a弓箭射程 §c+5-10
+    - §7-----------------------
+    - §9精心制做的长弓！
+    - §7-----------------------
+    ItemFlags:
+    - HIDE_ENCHANTS
+    - HIDE_ATTRIBUTES
+    - HIDE_UNBREAKABLE
+    - HIDE_POTION_EFFECTS
+    Unbreakable: true

@@ -1,0 +1,8 @@
+name: MysteriousStrengthen
+version: ${project.version}
+main: me.wuxie.mysteriousstrengthen.MysteriousStrengthen
+softdepend:
+- Vault
+authors: [wuxie]
+commands:
+  wqh:
